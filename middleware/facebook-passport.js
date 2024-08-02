@@ -5,37 +5,12 @@ const db = require('../models/');
 const { profile } = require('console');
 
 passport.use(new FacebookStrategy({
-  clientID: '718449097073996',
-  clientSecret: '174e9dcc13b6145288a56dde7c1f123a',
+  clientID: 'client id add here',
+  clientSecret: 'client secret add here',
   callbackURL: 'http://localhost:8080/auth/facebook/callback',
   enableProof: true,
   profileFields: ['id', 'displayName', 'email'],
 },
-  // async (accessToken, refreshToken, profile, done) => {
-  //   try {
-  //     let user = await db.user.findOne({ where: { facebookId: profile.id } });
-
-  //     if (!user) {
-  //       user = await db.user.create({
-  //         facebookId: profile.id,
-  //         name: profile.displayName,
-  //         email: profile.emails[0].value // Assuming the profile has an email field
-
-  //       });
-  //     }
-  //     return done(null, user);
-  //   } catch (err) {
-  //     return done(err, false);
-  //   }
-  // }
-
-  // function (accessToken, refreshToken, profile, cb) {
-  //   db.user.findOrCreate({ facebookId: profile.id }, function (err, user) {
-  //     console.log("User: ", user);
-  //     return cb(err, user);
-  //   });
-  // }
-
   async function (accessToken, refreshToken, profile, cb) {
     try {
       console.log("Profile: ", profile);
