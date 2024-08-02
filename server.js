@@ -3,11 +3,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 // const passport = require('./middleware/passport');
-// const facebookPassport = require('./middleware/facebook-passport');
 const facebookPassport = require("./middleware/facebook-passport");
 // const userRouter = require('./routes/userRouter');
 const authRouter = require("./routes/authRouter");
-// const sequelize = require('./db');  // Import sequelize instance
 require("./models/index");
 const User = require("./models/userModel"); // Import the User model
 
