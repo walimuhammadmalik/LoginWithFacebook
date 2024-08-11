@@ -1,7 +1,6 @@
 // controllers/userController.js
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-
 const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -17,12 +16,10 @@ const registerUser = async (req, res) => {
         return res.status(500).json({ error: 'Error registering user' });
     }
 };
-
 const loginUser = (req, res) => {
     const token = jwt.sign({ id: req.user.id }, 'your_jwt_secret', { expiresIn: '1h' });
     return res.json({ token });
 };
-
 const verifyUser = async (req, res) => {
     try {
         const user = await User.findOne({ where: { verificationToken: req.params.token } });
